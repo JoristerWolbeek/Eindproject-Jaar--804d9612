@@ -1,55 +1,22 @@
 <?php
 function resettingPassword() 
-{
+{   
+    if (isset($_GET['emailreset'])) {
+       $email = $_GET['emailreset']; 
+    }
     $dsn = "mysql:host=localhost;dbname=cv_maker";
     $user = "root";
     $passwd = "";
 
     $pdo = new PDO($dsn, $user, $passwd);
-    if (isset($_POST['password'])) {
-        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+    if (isset($_POST['submitpassword'])) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
             $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $check_attempt = $pdo->prepare("INSERT INTO users (email, username, password) VALUES (?, ?, ?)");
-            $check_attempt->execute([$_POST['email'], $_POST['username'], $hash]);
-        } else {
-            throw new Exception("Invalid Email input");
-        }
-        
-    }
-    if (isset($_POST['email'])) {
-        require("PHPMailer/src/PHPMailer.php");
-        require("PHPMailer/src/SMTP.php");
-        echo '<p hidden>';
-        $mail = new PHPMailer\PHPMailer\PHPMailer();
-        $mail->IsSMTP();
-        $mail->SMTPDebug = 0;
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = "smtp.gmail.com";
-        $mail->Port = 465;
-        $mail->IsHTML(true);
-        $mail->Username = "social.gamia@gmail.com";
-        $mail->Password = "zagntvbvaiwelopt";
-        $mail->SetFrom("social-gamia@noreply.com");
-        $mail->Subject = "You forgot your password!";
-        $mail->Body = '<html>
-        <head>
-        <title>To reset your password press the button down below!</title>
-        </head>
-        <body>
-            <h1>To reset your password press the button down below!</h1>
-            <form action="http://localhost/Social-Gamia/reset.php" method="GET">
-                <input type="submit" name="submit" value="Press me to reset!" />
-            </form>
-        </body>
-        </html>';
-        $mail->AddAddress($_POST['email']);
-        echo '</p>';
-
-        if(!$mail->Send()) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
-        } else {
-            echo "Message has been sent";
+            $check_attempt = $pdo->prepare("UPDATE users SET password = ? WHERE email=?;");
+            $check_attempt->execute([$hash, $_GET['emailreset']]);
+            header('Location: login.php');
+        } else if (!isset($_POST['submitpassword'])) {
+            throw new Exception("Something went wrong with the communication");
         }
     }
 }
@@ -61,18 +28,29 @@ function resettingPassword()
     <link rel="stylesheet" type="text/css" href="CSS/theme.css">
     <script src="JS/script.js"></script>
 </head>
-<body>
-    <header>
-        <h1>Password recovery</h1>
-    </header>
-    <main>
-        <form id="register" method="post">
-            <input type="email" name="email" placeholder="Email of your account">
-            <!-- <input type="password" name="password" placeholder="New password" onchange="checkPass()">
-            <input type="password" name="passwordCheck" placeholder="Confirm new password" onchange="checkPass()"> -->
-            <input type="submit" name="submit" value="Verstuur recovery email">
-        </form>
+<body class="reset_body">
+
+        <main>
+
+        <div id="test center">
+        <div class="reset_container center">
+
+        <header>
+            <h2>Reset Password</h2>
+        </header>
+        
+            <form id="register" method="post">
+                <input type="password" name="password" placeholder="New password" onkeyup="checkPass()">
+                <input type="password" name="passwordCheck" placeholder="Confirm new password" onkeyup="checkPass()">
+                <input class="disable" type="submit" name="submitpassword" value="Reset password">
+            </form>
+
+
+            </div>
+            </div>
     </main>
+
+    
 </body>
 </html>
 
