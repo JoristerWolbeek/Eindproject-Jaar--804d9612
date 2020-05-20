@@ -23,39 +23,35 @@ function loggingIn()
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="CSS/theme.css">
-</head>
-<body class="login_body">
-    <header>
-    </header>
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+        <header>   
+        </header>
 
-    <div class="navbar">
-        <a href="Title">Code Monkey Incorporated© CV Maker</a>
-
-        <div id="navLeft">
-            <a href="About-us">About us</a>
-        </div>
-    </div>
-
-
-    <center><div id="test">
-        <div class="login_container" >
-            <h1>Login</h1>
-            <form method="post">
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password"><br>
-                <input type="submit" name="submit" value="Login">
-            </form>
-            <div class="register_container" >
-                <h5>Not registered? Click <a href="register.php">here</a></h5>
-                <h5>Forgot password? Click <a href="send_email.php">here</a></h5>
+    <body>
+        <div class="loginPostbody">
+            <div class="loginContainer">
+                <h1>Login</h1>
+                <form method="post">
+                    <input class="field"  type="text" name="username" placeholder="Username">
+                    <input class="field" type="password" name="password" placeholder="Password">
+                    <input class="button" type="submit" name="submit" value="Login">
+                </form>
+                    <h5><a href="register.php">Not registered?</a></h5>
+                    <h5><a href="reset.php">Forgot password?</a></h5>
+                </div>
             </div>
         </div>
-    </div></center>
-</body>
-</html>
+        <footer>
+            <div class="footerContainer">
+                <h4> Code Monkey Incorporated© CV Maker</h4>
+                <h4 href="About-us"><a href="https://www.notion.so/bitacademy/2020-Code-Monkey-Incorporated-7c231c7df5f84c4e888f6c85849e0a07">About us</a></h4>
+            </div>
+        </footer>
+    </body>
+    </html>
 
 <?php
 try {
