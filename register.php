@@ -25,22 +25,31 @@ function registeringUser()
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="CSS/theme.css">
+    <link rel="stylesheet" type="text/css" href="Css/style.css">
+    <title>Register CV Maker</title>
     <script src="JS/script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Register</h1>
     </header>
     <main>
-        <form id="register" method="post">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password" onchange="checkPass()">
-            <input type="password" name="passwordCheck" placeholder="Confirm password" onchange="checkPass()">
-            <input type="submit" name="submit" value="Register">
-        </form>
+        <div class="loginPostbody">
+            <form id="register" method="post">
+                <div class="loginContainer">
+                    <h1>Register</h1>
+                    <input class="field" type="email" name="email" placeholder="Email" autocomplete="off">
+                    <input class="field" type="text" name="username" placeholder="Username" autocomplete="off">
+                    <input class="field" type="password" name="password" placeholder="Password" onchange="checkPass()">
+                    <input class="field" type="password" name="passwordCheck" placeholder="Confirm password" onchange="checkPass()">
+                    <input class="buttonReg" type="submit" name="submit" value="Register">
+                </div>
+            </form>
+        </div>
     </main>
+        <div class="footerContainer">
+            <h4> Code Monkey Incorporated© CV Maker</h4>
+            <h4 href="About-us"><a href="https://www.notion.so/bitacademy/2020-Code-Monkey-Incorporated-7c231c7df5f84c4e888f6c85849e0a07">About us</a></h4>
+        </div>
 </body>
 </html>
 

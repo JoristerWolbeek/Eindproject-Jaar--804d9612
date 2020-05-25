@@ -25,7 +25,7 @@ function loggingIn()
 <!DOCTYPE html>
     <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="Css/style.css"></link>
     </head>
         <header>   
         </header>
@@ -35,7 +35,7 @@ function loggingIn()
             <div class="loginContainer">
                 <h1>Login</h1>
                 <form method="post">
-                    <input class="field"  type="text" name="username" placeholder="Username">
+                    <input class="field"  type="text" name="username" placeholder="Username" autocomplete="off">
                     <input class="field" type="password" name="password" placeholder="Password">
                     <input class="button" type="submit" name="submit" value="Login">
                 </form>
