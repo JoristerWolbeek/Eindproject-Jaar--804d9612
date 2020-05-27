@@ -25,7 +25,7 @@ function resettingPassword()
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="CSS/theme.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
     <script src="JS/script.js"></script>
 </head>
 <body class="reset_body">
