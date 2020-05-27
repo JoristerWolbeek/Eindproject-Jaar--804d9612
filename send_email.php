@@ -52,14 +52,12 @@ function sendingEmail()
 </header>
     <body>
         <div class="loginPostbody">
-            <div class="loginContainer">
+            <form class="emailContainer" id="register" method="post">
                 <h1>Password recovery</h1>
-                <form id="register" method="post">
                     <input class="field" type="email" name="email" placeholder="Email of your account">
                     <input class="button" type="submit" name="submitemail" value="Send recovery email">
                 </form>
             </div>
-        </div>
         <footer>
             <div class="footerContainer">
                 <h4> Code Monkey Incorporated© CV Maker</h4>
