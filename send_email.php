@@ -44,7 +44,7 @@ function sendingEmail()
 <!DOCTYPE html>
 <html >
 <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="Css/style.css">
     <script src="JS/script.js"></script>
     <title>CV Maker | Password Recovery </title>
 </head>

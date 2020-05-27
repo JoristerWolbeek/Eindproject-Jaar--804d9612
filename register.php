@@ -25,7 +25,7 @@ function registeringUser()
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="Css/style.css">
     <title>Register CV Maker</title>
     <script src="JS/script.js"></script>
 </head>

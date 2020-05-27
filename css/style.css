@@ -24,7 +24,8 @@ html, body {
     height: 30%;
     margin-top: 160px;
     color: white;
-    height: 400px
+    height: 400px;
+    align-items: center;
 }
 
 .loginBody{
@@ -129,8 +130,7 @@ a:hover{
     width: 100px;
     height: 25px;
     transition: ease-in-out, height .20s ease-in-out;
-    border-radius: 10px;
-    margin-left: 75px;
+    border-radius: 10px;    
 }
 
 .buttonReg:hover, :focus{
