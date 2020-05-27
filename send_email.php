@@ -55,8 +55,8 @@ function sendingEmail()
             <div class="loginContainer">
                 <h1>Password recovery</h1>
                 <form id="register" method="post">
-                    <input type="email" name="email" placeholder="Email of your account">
-                    <input type="submit" name="submitemail" value="Send recovery email">
+                    <input class="field" type="email" name="email" placeholder="Email of your account">
+                    <input class="button" type="submit" name="submitemail" value="Send recovery email">
                 </form>
             </div>
         </div>
