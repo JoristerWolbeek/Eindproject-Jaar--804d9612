@@ -100,6 +100,7 @@ body {
     height: 25px;
     transition: ease-in-out, height .20s ease-in-out;
     border-radius: 10px;
+    border: white 2px solid;
 }
 
 .button:hover, :focus{
