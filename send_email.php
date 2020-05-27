@@ -44,23 +44,26 @@ function sendingEmail()
 <!DOCTYPE html>
 <html >
 <head>
-    <link rel="stylesheet" type="text/css" href="CSS/theme.css">
+    <link rel="stylesheet" type="text/css" href="Css/style.css">
     <script src="JS/script.js"></script>
     <title>CV Maker | Password Recovery </title>
 </head>
-<body class="pass_body">
-    <header>
-    </header>
-        <center>
-            <div class="pass_recover">
+<header>
+</header>
+    <body>
+        <div class="loginPostbody">
+            <form class="emailContainer" id="register" method="post">
                 <h1>Password recovery</h1>
-                <form id="register" method="post">
-                    <input type="email" name="email" placeholder="Email of your account">
-                    <input type="submit" name="submitemail" value="Send recovery email">
+                    <input class="field" type="email" name="email" placeholder="Email of your account">
+                    <input class="button" type="submit" name="submitemail" value="Send recovery email">
                 </form>
             </div>
-        </center>
-
+        <footer>
+            <div class="footerContainer">
+                <h4> Code Monkey Incorporated© CV Maker</h4>
+                <h4 href="About-us"><a href="https://www.notion.so/bitacademy/2020-Code-Monkey-Incorporated-7c231c7df5f84c4e888f6c85849e0a07">About us</a></h4>
+            </div>
+        </footer>
 </body>
 </html>
 
