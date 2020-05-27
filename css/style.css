@@ -5,7 +5,7 @@ html, body {
     color: white;
 }
 
-
+/* css for login */
 
 .footerContainer{
     justify-content: space-around;
@@ -79,13 +79,17 @@ body {
     height: 50px;
     width: 250px;
     transition: ease-in-out, width .35s ease-in-out;
-    transition: ease-in-out, height .35s ease-in-out;
 }
 
 .field:hover,:focus{
     background-color: transparent;
     width:  350px;
     transition: ease-in-out, width .35s ease-in-out;
+}
+
+.field::placeholder {
+    color:  #003070;
+    filter: invert(1);
 }
 
 .button{
@@ -127,3 +131,20 @@ a:hover{
 
 
 
+
+.buttonReg{
+    background-color: transparent;
+    margin: 15px;
+    color: white;
+    width: 100px;
+    height: 25px;
+    transition: ease-in-out, height .20s ease-in-out;
+    border-radius: 10px;
+    margin-left: 75px;
+}
+
+.buttonReg:hover, :focus{
+    height: 50px;
+    background-color: transparent;
+
+}
