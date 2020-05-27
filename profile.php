@@ -1,144 +1,87 @@
-
-<head>    
-    <script src="JS/profile_script.js"></script>
-</head>
 <?php
-class User
-{
-    public $id;
-    public $username;
-    public $email;
-    public $phone;
-    public $adress;
-    public $age;
-    public $linkedin;
-    public $hobbies;
-    public $skills;
-    public $past_work;
-    public $motivation;
-
-    public function __construct($id, $username, $email){
-        $this->username = $username;
-        $this->id = $id;
-        $this->email = $email;
-    }
-}
-
-
-
 $dsn = "mysql:host=localhost;dbname=cv_maker";
 $user = "root";
 $passwd = "";
 
 $pdo = new PDO($dsn, $user, $passwd);
-
-if(!isset($_COOKIE["loggedInUser"])){
-    header('Location: login.php');
+$query = $pdo->prepare("SELECT * FROM images WHERE user_id=?");
+if (isset($_COOKIE['loggedInUser'])) {
+    $edit = '<a href="profile.php?editing=true">Edit Account</a>';
+    $selected_user = $_COOKIE['loggedInUser'];
+    $query->execute([$_COOKIE['loggedInUser']]);
+} else {
+    $edit="<div></div>";
+    $selected_user = $_GET['selected_user'];
+    $query->execute([$_GET['selected_user']]);
 }
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id=?");
+$stmt->execute([$selected_user]);
+$stmt = $stmt->fetch();
 
-try {
-    $stmt = $pdo->query('SELECT * FROM users WHERE id = ' . $_COOKIE["loggedInUser"]);
-    if($stmt->rowCount() == 0) {
-        header('Location: login.php');
-    }
-    while($row = $stmt->fetch()) {
-        $user = new User($row["id"], $row["username"], $row["email"]);
-    }
-}catch(Exception $e) {
-    echo "<h3>$e</h3>";
+$default_profile_pic = 'uploads/download.jfif';
+if (isset($_GET['editing']) && $_GET['editing'] == 'true') {
+    $name = "<form method='post'><input name='name' type='text' placeholder='Name here'>";
+    $personalia = "<input name='personalia' type='text' placeholder='personalia here'></form>";
+    $edit = "<button onclick='sendingData()'>Save changes</button>";
+} else {
+    $name = isset($_GET['val']) ? "<h1>Name here</h1>" : "<h1>" . $_GET['val'] . "</h1>";
+    $personalia = "<h2>Personalia here</h2>";
 }
 ?>
-<div id="position_log">
-    <div class="logout_btn">
-    <a href="logout.php">Logout</a>
-    </div>
-    </div>
-
-    <main class="profile_main">
-        <?php
-        if($user->id == $_COOKIE["loggedInUser"]) {
-        ?>
-            <a class="edit_account" href="account_edit.php?user_id=<?= $user->id?>"> Edit account <div class="edit-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></a>
-        <?php
-        }
-
-        try {
-            $stmt = $pdo->query('SELECT * FROM profile_pages WHERE user_id = '.$user->id);
-            if($stmt->rowCount() == 0) {
-                throw new Exception("No profile page found!");
-            }
-
-            while($row = $stmt->fetch()){
-                $profile_id = $row["id"];
-                ?>
-                <div class="profile_page_content">
-                    <?php
-                    if($user->id == $_COOKIE["loggedInUser"]) {
-                        ?>
-                        <div contenteditable="true">
-                        <?php
-                    } else {
-                        ?>
-                        <div contenteditable="false">
-                        <?php
-                    }
-                    ?>
-                        <h1 id="profile_page_title"><?= $row["title"]?></h1>
-                    </div>
-                    <!-- PROFILE PAGE CONTENT START -->
-                    <div id="profile_page_content" class="">
-                        <?php
-                        $html = $row["html"];
-                        if($user->id != $_COOKIE["loggedInUser"]) {
-                            $html = str_replace( 'contenteditable="true"', 'contenteditable="false"', $html);
-                            $html = str_replace( '<button class="delete danger padding" onclick="deleteHtml(this)">Delete</button>', '', $html);
-                        }
-                        echo $html;
-                        ?>
-                    </div>
-                    <!-- PROFILE PAGE CONTENT END -->
+<!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="JS/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>CV Maker | <?= $stmt['username']?>'s profile</title>
+    </head>
+        <header>
+            <div id="header_container">
+                <div class="logout_btn">
+                    <a href="logout.php">Logout</a>
                 </div>
-                <?php
-                if($user->id == $_COOKIE["loggedInUser"]) {
-                    ?>
-                    <div class="profile_page_controls">
-                        <select id="element_to_add" class="blue padding" onchange="selectChange()">
-                            <option value="text">Text</option>
-                            <option value="h1">Title</option>
-                            <option value="h3">Header</option>
-                            <option value="ul">Unordered list</option>
-                            <option value="ol">Ordered list</option>
-                            <option value="img">Image</option>
-                        </select>
-                        <br>
-                        <div id="color_options">
-                            <label for="text_color">Text: </label>
-                            <input type="color" id="text_color" class="blue padding">
-                            <br>
-                            <label for="bg_color">Background: </label>
-                            <input type="checkbox" id="bg_on" class="blue padding" style="width:15px;height:15px">
-                            <input type="color" id="bg_color" class="blue padding" value="#ffffff">
-                            <br>
-                            <button class="margin_top blue padding" onclick="addHtml()">Add selected element</button>
-                            <br>
-                        </div>
-                        <div id="image_options" style="display:none;">
-                            <form action="profile.php?user=<?= $_GET["user"]?>" method="post" enctype="multipart/form-data">
-                                <input class="blue padding" type="file" name="fileToUpload"><br>
-                                <label for="width_val">Image Width(%): </label><input class="blue padding" type="number" name="width_val" id="width_val" style="width:50px;" value="100" min="10" max="100" step="5"><br>
-                                <input class="margin_top blue padding" type="submit" name="file_submit" value="Add selected element">
-                            </form>
-                        </div>
-                        <button class="green padding" onclick="getHtml(<?= $_GET['user']?>)">Save changes</button>
-                    </div>
-                    <?php
-                }
-            }
-        }catch(Exception $e) {
-            echo "<h3>$e</h3>";
-        }
-        ?>
+                <h1 id="header_profile">CV Maker | <?= $stmt['username']?>'s profile</h1>
+                <?= $edit?>
+            </div>
+        </header>
 
-    </main>
-    
-    <footer></footer>
+    <body>
+        <div>
+            <div><?php
+                if($query){
+                    while($row = $query->fetch(PDO::FETCH_ASSOC)){
+                            $imageURL = 'uploads/'.$row["file_name"];
+                    }
+                    $image = isset($imageURL) ? $imageURL : $default_profile_pic;?>
+                        <img id="profile_pic" width="200" height="200" src="<?= $image?>" alt="" />
+                    <?php 
+                }else{ ?>
+                    <p>No image(s) found...</p>
+                <?php }
+                if (isset($_GET['editing']) && $_GET['editing']=='true') {?>
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    Select Image File to Upload:
+                    <input type="file" name="file">
+                    <input type="submit" name="submit" value="Upload">
+                </form>
+                <?php } ?>
+            </div>
+            <div>
+                <div>  
+                    <?= $name ?>
+                    <?= $_GET['val'] ?>
+                </div>
+                <div>
+                    <?= $personalia ?>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footerContainer">
+                <h4> Code Monkey Incorporated© CV Maker</h4>
+                <h4 href="About-us"><a href="https://www.notion.so/bitacademy/2020-Code-Monkey-Incorporated-7c231c7df5f84c4e888f6c85849e0a07">About us</a></h4>
+            </div>
+        </footer>
+    </body>
+    </html>

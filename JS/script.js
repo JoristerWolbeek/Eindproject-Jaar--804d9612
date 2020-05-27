@@ -11,3 +11,16 @@ function checkPass()
     }
 
 }
+
+function sendingData() 
+{
+    var input_name = $("[name='name']").val();
+    var val = input_name;
+    $.ajax ({
+        url: "profile.php",
+        data: { val : val },
+        success: function( result ) {
+            
+        }
+    });
+}

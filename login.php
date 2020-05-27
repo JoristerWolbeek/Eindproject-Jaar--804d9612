@@ -40,7 +40,7 @@ function loggingIn()
                     <input class="button" type="submit" name="submit" value="Login">
                 </form>
                     <h5><a href="register.php">Not registered?</a></h5>
-                    <h5><a href="reset.php">Forgot password?</a></h5>
+                    <h5><a href="send_email.php">Forgot password?</a></h5>
                 </div>
             </div>
         </div>
