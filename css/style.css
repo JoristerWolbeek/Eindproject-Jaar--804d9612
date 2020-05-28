@@ -41,7 +41,7 @@ html, body {
     justify-content: center;
 }
 
-body {
+body{
     background-color: #193c6d;
     background-image: linear-gradient(135deg, #003073, #029797);
     text-align: center;
@@ -120,27 +120,27 @@ a:hover{
     filter: invert(1);
 }
 
-/* css for register */
-
-
-.buttonReg{
-    background-color: transparent;
-    margin: 15px;
-    color: white;
-    width: 100px;
-    height: 25px;
-    transition: ease-in-out, height .20s ease-in-out;
-    border-radius: 10px;    
-}
-
-.buttonReg:hover, :focus{
-    height: 50px;
-    background-color: transparent;
-}
 
 /*css for email */
 
 .emailContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-left: 2px white solid;
+    border-right: 2px white solid;
+    height: 30%;
+    margin-top: 160px;
+    color: white;
+    height: 400px;
+    align-items: center;
+}
+
+/* css for reset.php */
+
+.resetContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
