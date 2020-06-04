@@ -109,7 +109,6 @@ body {
 
 .button:hover, :focus{
     height: 50px;
-    background-color: transparent;
 }
 
 a{
