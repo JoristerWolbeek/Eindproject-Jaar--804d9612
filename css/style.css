@@ -6,7 +6,9 @@ html, body {
 }
 
 /* css for login */
-
+html {
+    height:100%;
+}
 .footerContainer{
     justify-content: space-around;
     height: 200px;
@@ -46,6 +48,7 @@ body {
     text-align: center;
     margin: 0px;
     overflow: hidden;
+    height:85%;
 }
 
 .loginContainer h5, h1{
@@ -148,3 +151,38 @@ a:hover{
     background-color: transparent;
 
 }
+
+#soDone {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#overlord {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: fit-content;
+}
+
+#top_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 500px;
+}
+
+#mid_container {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+}
+
+#profile_pic_container {
+    padding: 5px;
+}
+
+.resizing_list {
+    height: fit-content;
+}
+

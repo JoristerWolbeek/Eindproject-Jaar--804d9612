@@ -16,8 +16,8 @@ function registeringUser()
             $stmt = $pdo->query('SELECT * FROM users WHERE username = "'.$_POST["username"].'"');
             while($row = $stmt->fetch()) {
                 $stmt_profile = $pdo->prepare(
-                    "INSERT INTO profile_pages (user_id, title)
-                    VALUES (".$row["id"]." , 'Profile page of ".$_POST["username"]."')"
+                    "INSERT INTO profile_pages (user_id)
+                    VALUES (".$row["id"].")"
                 );
                 $stmt_profile->execute();
             }
@@ -43,15 +43,6 @@ function registeringUser()
     <header>
     </header>
     <main>
-<<<<<<< HEAD
-        <form id="register" method="post">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password" oninput="checkPass()">
-            <input type="password" name="passwordCheck" placeholder="Confirm password" oninput="checkPass()">
-            <input type="submit" name="submit" value="Register">
-        </form>
-=======
         <div class="loginPostbody">
             <form id="register" method="post">
                 <div class="loginContainer">
@@ -64,7 +55,6 @@ function registeringUser()
                 </div>
             </form>
         </div>
->>>>>>> 57db96bca677811079cd073d58da9c1b1cc2fec5
     </main>
         <div class="footerContainer">
             <h4> Code Monkey Incorporated© CV Maker</h4>

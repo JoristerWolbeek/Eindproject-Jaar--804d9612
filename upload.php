@@ -43,5 +43,7 @@ if (isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
 }
 
 echo $statusMsg;
+sleep(2);
+header("Location: profile.php");
+
 ?>
-<a href="profile.php">Back to profile</a>
