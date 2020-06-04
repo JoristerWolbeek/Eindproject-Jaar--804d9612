@@ -18,7 +18,7 @@ html {
 .loginContainer{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-left: 100px;
     padding-right: 100px;
     border-left: 2px white solid;
@@ -26,7 +26,8 @@ html {
     height: 30%;
     margin-top: 160px;
     color: white;
-    height: 400px
+    height: 400px;
+    align-items: center;
 }
 
 .loginBody{
@@ -103,6 +104,7 @@ body {
     height: 25px;
     transition: ease-in-out, height .20s ease-in-out;
     border-radius: 10px;
+    border: white 2px solid;
 }
 
 .button:hover, :focus{
@@ -142,16 +144,15 @@ a:hover{
     width: 100px;
     height: 25px;
     transition: ease-in-out, height .20s ease-in-out;
-    border-radius: 10px;
-    margin-left: 75px;
+    border-radius: 10px;    
 }
 
 .buttonReg:hover, :focus{
     height: 50px;
     background-color: transparent;
-
 }
 
+<<<<<<< HEAD
 #soDone {
     display: flex;
     justify-content: center;
@@ -186,3 +187,21 @@ a:hover{
     height: fit-content;
 }
 
+=======
+/*css for email */
+
+.emailContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-left: 2px white solid;
+    border-right: 2px white solid;
+    height: 30%;
+    margin-top: 160px;
+    color: white;
+    height: 400px;
+    align-items: center;
+}
+>>>>>>> 2d1f32e307eb69f3cbcd5f7b9508e2fa2167f0a9
