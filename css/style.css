@@ -152,7 +152,6 @@ a:hover{
     background-color: transparent;
 }
 
-<<<<<<< HEAD
 #soDone {
     display: flex;
     justify-content: center;
@@ -175,7 +174,7 @@ a:hover{
 
 #mid_container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 500px;
 }
 
@@ -187,7 +186,20 @@ a:hover{
     height: fit-content;
 }
 
-=======
+.date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#date_work1, #date_work2, #date_work3, #date_work4, #date_work5, #date_work6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 /*css for email */
 
 .emailContainer{
@@ -204,4 +216,3 @@ a:hover{
     height: 400px;
     align-items: center;
 }
->>>>>>> 2d1f32e307eb69f3cbcd5f7b9508e2fa2167f0a9

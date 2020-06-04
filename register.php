@@ -22,7 +22,7 @@ function registeringUser()
                 $stmt_profile->execute();
             }
             if ($_POST['submit'] == "Register") {
-                echo '<script>window.location="login.php";</script>';
+                echo '<script>window.location="index.php";</script>';
             }
         } else {
             throw new Exception("<div style='color: red;'>Invalid Email input</div>");
