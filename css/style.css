@@ -6,7 +6,9 @@ html, body {
 }
 
 /* css for login */
-
+html {
+    height:100%;
+}
 .footerContainer{
     justify-content: space-around;
     height: 200px;
@@ -120,6 +122,15 @@ a:hover{
     filter: invert(1);
 }
 
+#header_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#profile_pic{
+    border:10px outset silver;
+}
 
 /*css for email */
 
@@ -139,6 +150,61 @@ a:hover{
 }
 
 /* css for reset.php */
+
+
+
+/* Jesse CSS profile */
+
+#soDone {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#overlord {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: fit-content;
+}
+
+#top_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 500px;
+}
+
+#mid_container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+}
+
+#profile_pic_container {
+    padding: 5px;
+}
+
+.resizing_list {
+    height: fit-content;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#date_work1, #date_work2, #date_work3, #date_work4, #date_work5, #date_work6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*css for email */
+
 
 .resetContainer{
     display: flex;
