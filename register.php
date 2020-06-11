@@ -51,7 +51,7 @@ function registeringUser()
                     <input class="field" type="text" name="username" placeholder="Username" autocomplete="off">
                     <input class="field" type="password" name="password" placeholder="Password" onchange="checkPass()">
                     <input class="field" type="password" name="passwordCheck" placeholder="Confirm password" onchange="checkPass()">
-                    <input class="buttonReg" type="submit" name="submit" value="Register">
+                    <input class="button" type="submit" name="submit" value="Register">
                 </div>
             </form>
         </div>
