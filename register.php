@@ -1,4 +1,5 @@
 <?php
+session_start();
 function registeringUser() 
 {
     $dsn = "mysql:host=localhost;dbname=cv_maker";
@@ -8,10 +9,11 @@ function registeringUser()
     $pdo = new PDO($dsn, $user, $passwd);
     if (isset($_POST['username'])) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            $token = openssl_random_pseudo_bytes(16);
+            $token = bin2hex($token);
             $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $check_attempt = $pdo->prepare("INSERT INTO users (email, username, password) VALUES (?, ?, ?)");
-            $check_attempt->execute([$_POST['email'], $_POST['username'], $hash]);
-
+            $check_attempt = $pdo->prepare("INSERT INTO users (email, username, password, token) VALUES (?, ?, ?, ?)");
+            $check_attempt->execute([$_POST['email'], $_POST['username'], $hash, $token]);
             //profile page for the user
             $stmt = $pdo->query('SELECT * FROM users WHERE username = "'.$_POST["username"].'"');
             while($row = $stmt->fetch()) {

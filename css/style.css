@@ -49,7 +49,6 @@ body {
     text-align: center;
     margin: 0px;
     overflow: hidden;
-    height:85%;
 }
 
 .loginContainer h5, h1{
@@ -129,7 +128,7 @@ a:hover{
     justify-content: space-evenly;
 }
 
-#profile_pic{
+.profile_pic, .OutOfPics{
     border:10px outset silver;
 }
 

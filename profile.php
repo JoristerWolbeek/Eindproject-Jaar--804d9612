@@ -5,12 +5,15 @@ $passwd = "";
 
 $pdo = new PDO($dsn, $user, $passwd);
 $query = $pdo->prepare("SELECT * FROM images WHERE user_id=?");
+$stmt1 = $pdo->prepare("SELECT * FROM profile_pages WHERE user_id=?");
 if (isset($_COOKIE['loggedInUser'])) {
     $selected_user = $_COOKIE['loggedInUser'];
     $query->execute([$_COOKIE['loggedInUser']]);
+    $stmt1->execute([$_COOKIE['loggedInUser']]);
 } else {
     $selected_user = $_GET['selected_user'];
     $query->execute([$_GET['selected_user']]);
+    $stmt1->execute([$_GET['selected_user']]);
 }
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id=?");
 $stmt->execute([$selected_user]);
@@ -18,8 +21,6 @@ $stmt = $stmt->fetch();
 
 $default_profile_pic = 'uploads/download.jfif';
 $edit="<div></div>";
-$stmt1 = $pdo->prepare("SELECT * FROM profile_pages WHERE user_id=?");
-$stmt1->execute([$_COOKIE['loggedInUser']]);
 $show = $stmt1->fetch();
 ?>
 <!DOCTYPE html>
@@ -40,6 +41,7 @@ $show = $stmt1->fetch();
             </div>
     </header>
     <body id="soDone">
+        <center>
         <div id="overlord">
             <div id="top_container">
                 <div id="profile_pic_container"><?php
@@ -48,7 +50,7 @@ $show = $stmt1->fetch();
                                 $imageURL = 'uploads/'.$row["file_name"];
                         }
                         $image = isset($imageURL) ? $imageURL : $default_profile_pic;?>
-                            <img id="profile_pic" width="200" height="200" src="<?= $image?>" alt="" />
+                            <img class="profile_pic" width="200" height="200" src="<?= $image?>" alt="" />
                         <?php 
                     }else{ ?>
                         <p>No image(s) found...</p>
@@ -142,6 +144,7 @@ $show = $stmt1->fetch();
                     </ul>
                 </div>   
             </div>
+            </center>
         </div>
     </body>
     <footer>

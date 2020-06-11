@@ -1,15 +1,17 @@
 <?php
-function loggingIn() 
+session_start();
+function loggingIn($User) 
 {
     $dsn = "mysql:host=localhost;dbname=cv_maker";
     $user = "root";
     $passwd = "";
 
     $pdo = new PDO($dsn, $user, $passwd);
-    if (isset($_POST['username'])) {
+    if (isset($User)) {
         $check_attempt = $pdo->prepare("SELECT * FROM users WHERE username=?");
-        $check_attempt->execute([$_POST['username']]);
+        $check_attempt->execute([$User]);
         $check_attempt = $check_attempt->fetch();
+        $_SESSION['token'] = $check_attempt['token'];
         if (!$check_attempt) {
             throw new Exception("This username and password combination is not registered.");
         } else if (!password_verify($_POST['password'], $check_attempt['password'])) {
@@ -55,7 +57,10 @@ function loggingIn()
 
 <?php
 try {
-    loggingIn();
+    if (isset($_POST['username'])) {
+        loggingIn($_POST['username']);
+    }
+    
 } catch (Exception $e) {
     echo '<h1>' . $e->getMessage() . '</h1>';
 }
