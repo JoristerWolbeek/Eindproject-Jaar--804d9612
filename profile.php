@@ -39,8 +39,8 @@ $show = $stmt1->fetch();
             <?= $edit?>
             </div>
     </header>
-    <body id="soDone">
-        <div id="overlord">
+    <body>
+        <div class="overlord">
             <div id="top_container">
                 <div id="profile_pic_container"><?php
                     if($query){
@@ -145,9 +145,5 @@ $show = $stmt1->fetch();
         </div>
     </body>
     <footer>
-        <div class="footerContainer">    
-            <h4> Code Monkey Incorporated© CV Maker</h4>
-            <h4 href="About-us"><a href="https://www.notion.so/bitacademy/2020-Code-Monkey-Incorporated-7c231c7df5f84c4e888f6c85849e0a07">About us</a></h4>
-        </div>
     </footer>
     </html>

@@ -48,7 +48,6 @@ body{
     background-image: linear-gradient(135deg, #003073, #029797);
     text-align: center;
     margin: 0px;
-    overflow: hidden;
 }
 
 .loginContainer h5, h1{
@@ -161,8 +160,9 @@ a:hover{
     flex-direction: column;
 }
 
-#overlord {
+.overlord {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     height: 100%;
     width: fit-content;
