@@ -12,7 +12,8 @@ function checkPass()
 
 }
 $(document).ready(function(){
-    
+$loggedInUser = getCookie("loggedInUser");
+if($loggedInUser != "") {
     $(".switchTo").dblclick(function(){
         var attr = $(this).attr('id');
         $(this).fadeOut(400, "swing", function(){
@@ -23,7 +24,7 @@ $(document).ready(function(){
             });
         });
     });
-    $("#profile_pic").dblclick(function(){
+    $(".profile_pic").dblclick(function(){
         $("#change_pic").fadeIn(function(){
             $("#choose_pic").click();
             $("#choose_pic").change(function(){
@@ -32,19 +33,21 @@ $(document).ready(function(){
         });
     });
     $(".in").bind("keyup change", function(){
+        var selected_user = getUrlParameter('selected_user');
         var input_name = $(this).attr('name');
         var input_value = $(this).val();
         $.ajax({
-    
+            
             // The URL for the request
             url: "instant.php",
-        
+                
             // The data to send (will be converted to a query string)
             data: {
+                "selected_user": selected_user,
                 "input_name": input_name,
                 "input_value": input_value
             },
-        
+                
             // Whether this is a POST or GET request
             type: "POST",
 
@@ -53,8 +56,44 @@ $(document).ready(function(){
             }
         });
         $(document).ajaxComplete(function(){
-            obj = JSON.parse(return_values);
-            $("#" + obj.input_name).html(obj[input_name]);
+            if (return_values != "") {
+                obj = JSON.parse(return_values);
+                $("#" + obj.input_name).html(obj[input_name]);
+            } else {
+                console.log("Quit messing around!");
+            } 
         })
     });
+}
 });
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};

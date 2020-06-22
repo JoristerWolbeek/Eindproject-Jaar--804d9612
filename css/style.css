@@ -128,7 +128,7 @@ a:hover{
     justify-content: space-evenly;
 }
 
-#profile_pic{
+.profile_pic, .OutOfPics{
     border:10px outset silver;
 }
 
