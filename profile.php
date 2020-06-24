@@ -7,10 +7,16 @@ $pdo = new PDO($dsn, $user, $passwd);
 $query = $pdo->prepare("SELECT * FROM images WHERE user_id=?");
 $stmt1 = $pdo->prepare("SELECT * FROM profile_pages WHERE user_id=?");
 if (isset($_COOKIE['loggedInUser'])) {
+    $btn = '<div class="logout_btn">
+    <a href="logout.php">Logout</a>
+</div>';
     $selected_user = $_COOKIE['loggedInUser'];
     $query->execute([$_COOKIE['loggedInUser']]);
     $stmt1->execute([$_COOKIE['loggedInUser']]);
 } else {
+    $btn = '<div class="logout_btn">
+    <a href="summary.php">Back</a>
+</div>';
     $selected_user = $_GET['selected_user'];
     $query->execute([$_GET['selected_user']]);
     $stmt1->execute([$_GET['selected_user']]);
@@ -33,9 +39,7 @@ $show = $stmt1->fetch();
     </head>
     <header>
         <div id="header_container">
-            <div class="logout_btn">
-                <a href="logout.php">Logout</a>
-            </div>
+            <?= $btn?>
             <h1 id="header_profile">CV Maker | <?= $stmt['username']?>'s profile</h1>
             <?= $edit?>
             </div>

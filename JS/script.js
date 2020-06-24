@@ -1,17 +1,37 @@
-function checkPass() 
-{
-    pass1 = document.querySelector('input[name="password"]').value;
-    pass2 = document.querySelector('input[name="passwordCheck"]').value;
-    if (pass1 == pass2) {
-        document.querySelector('input[name="passwordCheck"]').style.boxShadow = "10px 20px 30px darkgreen";
-        document.querySelector('input[value="Register"]').disabled = false;
-    } else {
-        document.querySelector('input[name="passwordCheck"]').style.boxShadow = "10px 20px 30px darkred";
-        document.querySelector('input[value="Register"]').disabled = true;
-    }
-
-}
 $(document).ready(function(){
+$("[onchange]").on('input', function(){
+    if ($('input[name="password"]').val() == $('input[name="passwordCheck"]').val()) {
+        document.querySelector('input[value="Register"]').disabled = false;
+        $("#simple_error").html("");
+    } else {
+        document.querySelector('input[value="Register"]').disabled = true;
+        $("#simple_error").html("Password don't match!");
+    }
+})
+$(".in_summary").on("input", function(){
+    var input, filter, table, tr, td, i, txtValue;
+    input = $(this);
+    input = input[0];
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    if ($(this).attr('name') == 'username') {
+        x = 0;
+    } else {
+        x = 1;
+    }
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[x];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+})
 $loggedInUser = getCookie("loggedInUser");
 if($loggedInUser != "") {
     $(".switchTo").dblclick(function(){
