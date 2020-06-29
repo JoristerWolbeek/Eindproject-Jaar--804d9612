@@ -212,11 +212,20 @@ a:hover{
     justify-content: space-between;
     padding-left: 100px;
     padding-right: 100px;
-    border-left: 2px white solid;
-    border-right: 2px white solid;
-    height: 30%;
     margin-top: 160px;
     color: white;
     height: 400px;
     align-items: center;
+}
+
+.positionResetContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#resetPhpTitel{
+    margin-top:70px;
 }

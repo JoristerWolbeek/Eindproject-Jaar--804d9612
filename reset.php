@@ -31,21 +31,17 @@ function resettingPassword()
 <body>
     <main>
         <div id="loginPostBody">
-            <div class="resetContainer">
-            <h2>Reset Password</h2>
-            <form id="register" method="post">
+            <h2 id="resetPhpTitel">Reset Password</h2>
+        </div>
+        <div class="resetContainer" >
+           <form class="positionResetContainer" id="register" method="post">
                 <input class="field" type="password" name="password" placeholder="New password" onkeyup="checkPass()">
                 <input class="field" type="password" name="passwordCheck" placeholder="Confirm new password" onkeyup="checkPass()">
-                <input class="button" class="disable" type="submit" name="submitpassword" value="Reset password">
+                <input class="button" class="disable" type="submit" name="submitpassword" value="Reset">
             </form>
-            </div>
         </div>
     </main>
     <footer>
-            <div class="footerContainer">
-                <h4> Code Monkey Incorporated© CV Maker</h4>
-                <h4 href="About-us"><a href="https://www.notion.so/bitacademy/2020-Code-Monkey-Incorporated-7c231c7df5f84c4e888f6c85849e0a07">About us</a></h4>
-            </div>
         </footer>
     
 </body>
