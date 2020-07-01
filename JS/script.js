@@ -5,7 +5,7 @@ $("[onchange]").on('input', function(){
         $("#simple_error").html("");
     } else {
         document.querySelector('input[value="Register"]').disabled = true;
-        $("#simple_error").html("Password don't match!");
+        $("#simple_error").html("Passwords don't match!");
     }
 })
 $(".in_summary").on("input", function(){
@@ -52,7 +52,7 @@ if($loggedInUser != "") {
             });
         });
     });
-    $(".in").bind("keyup change", function(){
+    $(".in").on("input", function(){
         var selected_user = getUrlParameter('selected_user');
         var input_name = $(this).attr('name');
         var input_value = $(this).val();

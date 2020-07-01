@@ -60,7 +60,6 @@ try {
     if (isset($_POST['username'])) {
         loggingIn($_POST['username']);
     }
-    
 } catch (Exception $e) {
     echo '<h1>' . $e->getMessage() . '</h1>';
 }
