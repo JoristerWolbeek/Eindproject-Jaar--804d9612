@@ -30,10 +30,11 @@ function loggingIn($User)
         <link rel="stylesheet" type="text/css" href="Css/style.css"></link>
     </head>
         <header>   
+            
         </header>
-
     <body>
         <div class="loginPostbody">
+        <img src="Css/logo.svg">
             <div class="loginContainer">
                 <h1>Login</h1>
                 <form method="post">
