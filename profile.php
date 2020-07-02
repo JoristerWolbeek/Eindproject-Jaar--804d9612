@@ -91,11 +91,11 @@ function array_push_assoc($array, $key, $value){
                         <input class='in' name='personalia' type='text' placeholder='<?= $show['personalia']?>' hidden></form>
                         <h2 class="switchTo" id="personalia"><?= $show['personalia']?></h2>
                         <ul>
-                            <li class="resizing_list"><div class="switchTo" id="ulist1"><?= isset($show2['ulist1'])? $show2['ulist1'] : "Double click me!"?></div><input class='in' name='ulist1' type='text' placeholder='<?= $show2['ulist1']?>' hidden></li>
-                            <li class="resizing_list"><div class="switchTo" id="ulist2"><?= isset($show2['ulist2'])? $show2['ulist2'] : "Double click me!"?></div><input class='in' name='ulist2' type='text' placeholder='<?= $show2['ulist2']?>' hidden></li>
-                            <li class="resizing_list"><div class="switchTo" id="ulist3"><?= isset($show2['ulist3'])? $show2['ulist3'] : "Double click me!"?></div><input class='in' name='ulist3' type='text' placeholder='<?= $show2['ulist3']?>' hidden></li>
-                            <li class="resizing_list"><div class="switchTo" id="ulist4"><?= isset($show2['ulist4'])? $show2['ulist4'] : "Double click me!"?></div><input class='in' name='ulist4' type='text' placeholder='<?= $show2['ulist4']?>' hidden></li>
-                            <li class="resizing_list"><div class="switchTo" id="ulist5"><?= isset($show2['ulist5'])? $show2['ulist5'] : "Double click me!"?></div><input class='in' name='ulist5' type='text' placeholder='<?= $show2['ulist5']?>' hidden></li>
+                            <li class="resizing_list"><div class="switchTo" id="ulist1"><?= isset($show2['ulist1'])? $show2['ulist1'] : "Double click me!"?></div><input class='in' name='ulist1' type='text' hidden></li>
+                            <li class="resizing_list"><div class="switchTo" id="ulist2"><?= isset($show2['ulist2'])? $show2['ulist2'] : "Double click me!"?></div><input class='in' name='ulist2' type='text' hidden></li>
+                            <li class="resizing_list"><div class="switchTo" id="ulist3"><?= isset($show2['ulist3'])? $show2['ulist3'] : "Double click me!"?></div><input class='in' name='ulist3' type='text' hidden></li>
+                            <li class="resizing_list"><div class="switchTo" id="ulist4"><?= isset($show2['ulist4'])? $show2['ulist4'] : "Double click me!"?></div><input class='in' name='ulist4' type='text' hidden></li>
+                            <li class="resizing_list"><div class="switchTo" id="ulist5"><?= isset($show2['ulist5'])? $show2['ulist5'] : "Double click me!"?></div><input class='in' name='ulist5' type='text' hidden></li>
                         </ul>
                     </div>
                 </div>
@@ -105,11 +105,11 @@ function array_push_assoc($array, $key, $value){
                     <input class='in' name='skills' type='text' placeholder='<?= $show['skills']?>' hidden>
                     <h2 class="switchTo" id="skills"><?= $show['skills']?></h2>
                     <ol>
-                        <li class="resizing_list"><div class="switchTo" id="olist1"><?= isset($show2['olist1'])? $show2['olist1'] : "Double click me!"?></div><input class='in' name='olist1' type='text' placeholder='<?= $show['olist1']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="olist2"><?= isset($show2['olist2'])? $show2['olist2'] : "Double click me!"?></div><input class='in' name='olist2' type='text' placeholder='<?= $show['olist2']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="olist3"><?= isset($show2['olist3'])? $show2['olist3'] : "Double click me!"?></div><input class='in' name='olist3' type='text' placeholder='<?= $show['olist3']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="olist4"><?= isset($show2['olist4'])? $show2['olist4'] : "Double click me!"?></div><input class='in' name='olist4' type='text' placeholder='<?= $show['olist4']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="olist5"><?= isset($show2['olist5'])? $show2['olist5'] : "Double click me!"?></div><input class='in' name='olist5' type='text' placeholder='<?= $show['olist5']?>' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="olist1"><?= isset($show2['olist1'])? $show2['olist1'] : "Double click me!"?></div><input class='in' name='olist1' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="olist2"><?= isset($show2['olist2'])? $show2['olist2'] : "Double click me!"?></div><input class='in' name='olist2' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="olist3"><?= isset($show2['olist3'])? $show2['olist3'] : "Double click me!"?></div><input class='in' name='olist3' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="olist4"><?= isset($show2['olist4'])? $show2['olist4'] : "Double click me!"?></div><input class='in' name='olist4' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="olist5"><?= isset($show2['olist5'])? $show2['olist5'] : "Double click me!"?></div><input class='in' name='olist5' type='text' hidden></li>
                     </ol>
                 </div>
                 <div>
@@ -158,11 +158,11 @@ function array_push_assoc($array, $key, $value){
                     <input class='in' name='personalia1' type='text' placeholder='<?= $show['personalia1']?>' hidden></form>
                     <h2 class="switchTo" id="personalia1"><?= $show['personalia1']?></h2>
                     <ul>
-                        <li class="resizing_list"><div class="switchTo" id="ulist6"><?= isset($show2['ulist6'])? $show2['ulist6'] : "Double click me!"?></div><input class='in' name='ulist6' type='text' placeholder='<?= $show['ulist6']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="ulist7"><?= isset($show2['ulist7'])? $show2['ulist7'] : "Double click me!"?></div><input class='in' name='ulist7' type='text' placeholder='<?= $show['ulist7']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="ulist8"><?= isset($show2['ulist8'])? $show2['ulist8'] : "Double click me!"?></div><input class='in' name='ulist8' type='text' placeholder='<?= $show['ulist8']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="ulist9"><?= isset($show2['ulist9'])? $show2['ulist9'] : "Double click me!"?></div><input class='in' name='ulist9' type='text' placeholder='<?= $show['ulist9']?>' hidden></li>
-                        <li class="resizing_list"><div class="switchTo" id="ulist10"><?= isset($show2['ulist10'])? $show2['ulist10'] : "Double click me!"?></div><input class='in' name='ulist10' type='text' placeholder='<?= $show['ulist10']?>' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="ulist6"><?= isset($show2['ulist6'])? $show2['ulist6'] : "Double click me!"?></div><input class='in' name='ulist6' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="ulist7"><?= isset($show2['ulist7'])? $show2['ulist7'] : "Double click me!"?></div><input class='in' name='ulist7' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="ulist8"><?= isset($show2['ulist8'])? $show2['ulist8'] : "Double click me!"?></div><input class='in' name='ulist8' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="ulist9"><?= isset($show2['ulist9'])? $show2['ulist9'] : "Double click me!"?></div><input class='in' name='ulist9' type='text' hidden></li>
+                        <li class="resizing_list"><div class="switchTo" id="ulist10"><?= isset($show2['ulist10'])? $show2['ulist10'] : "Double click me!"?></div><input class='in' name='ulist10' type='text' hidden></li>
                     </ul>
                 </div>   
             </div>
