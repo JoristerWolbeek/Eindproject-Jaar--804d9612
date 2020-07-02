@@ -40,12 +40,12 @@ html {
 .loginPostbody{
     height: 90vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 body{
-    background-color: #193c6d;
-    background-image: linear-gradient(135deg, #003073, #029797);
+    background-color: #000563;
+    background-image: linear-gradient(135deg, #000563, #003073);
     text-align: center;
     margin: 0px;
     overflow: hidden;
