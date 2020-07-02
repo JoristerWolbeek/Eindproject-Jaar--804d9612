@@ -28,17 +28,18 @@ function loggingIn()
         <link rel="stylesheet" type="text/css" href="Css/style.css"></link>
     </head>
         <header>   
+            
         </header>
-
     <body>
         <div class="loginPostbody">
-            <div class="loginContainer">
-                <h1>Login</h1>
-                <form method="post">
-                    <input class="field"  type="text" name="username" placeholder="Username" autocomplete="off">
-                    <input class="field" type="password" name="password" placeholder="Password">
-                    <input class="button" type="submit" name="submit" value="Login">
-                </form>
+            <img src="Css/images/logo.svg" class="bitLogo">
+                <div class="loginContainer">
+                    <h1>Login</h1>
+                    <form method="post">
+                        <input class="field"  type="text" name="username" placeholder="Username" autocomplete="off">
+                        <input class="field" type="password" name="password" placeholder="Password">
+                        <input class="button" type="submit" name="submit" value="Login">
+                    </form>
                     <h5><a href="register.php">Not registered?</a></h5>
                     <h5><a href="send_email.php">Forgot password?</a></h5>
                 </div>
