@@ -22,8 +22,8 @@ $query2 = $pdo->prepare("SELECT * FROM profile_pages WHERE user_id=?")
     </header>
     <body id="soDone">
     <table id="myTable">
-    <tr><th><input  class='in_summary' name='username' type='text' placeholder='Search by Username'><div class="Switch" id="username" style="width:150px">Username</div></th>
-    <th><input  class='in_summary' name='name' type='text' placeholder='Search by Name'><div class="Switch" id="name" style="width:150px">Name</div></th></tr>
+    <tr><th><input autocomplete="off" class='in_summary' name='username' type='text' placeholder='Search by Username'><div class="Switch"  id="name" style="width:150px">Username</div></th>
+    <th><input autocomplete="off" class='in_summary' name='name' type='text' placeholder='Search by Name'><div class="Switch" id="name" style="width:150px">Name</div></th></tr>
     <?php 
     while ($show = $query->fetch(PDO::FETCH_ASSOC)) {
         $query2->execute([$show['id']]);

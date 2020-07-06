@@ -52,7 +52,9 @@ function sendingEmail()
 </header>
     <body>
         <div class="loginPostbody">
+        
             <form class="emailContainer" id="register" method="post">
+            <a class="backLink" href="index.php">Back</a>
                 <h1>Password recovery</h1>
                     <input class="field" type="email" name="email" placeholder="Email of your account">
                     <input class="button" type="submit" name="submitemail" value="Send recovery email">
