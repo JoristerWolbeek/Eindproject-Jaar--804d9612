@@ -77,8 +77,10 @@ try {
         <div class="loginPostbody">
             
             <form id="register" method="post">
+                <div class="backLink">
+                    <a class="backLink" href="index.php">Back</a>
+                </div>
                 <div class="loginContainer">
-                <a class="backLink" href="index.php">Back</a>
                     <h1>Register</h1>
                     <input class="field" type="email" name="email" placeholder="Email" <?= $email_value?> autocomplete="off">
                     <input class="field" type="text" name="username" placeholder="Username" <?= $username_value?> autocomplete="off">
