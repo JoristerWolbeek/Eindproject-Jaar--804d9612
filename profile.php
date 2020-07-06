@@ -63,7 +63,8 @@ function array_push_assoc($array, $key, $value){
             </div>
     </header>
     <body>
-        <div class="overlord">
+    <center>
+        <div class="mainConntainer">
             <div id="top_container">
                 <div id="profile_pic_container"><?php
                     if($query){
@@ -81,7 +82,7 @@ function array_push_assoc($array, $key, $value){
                         <input id="up_pic" type="submit" name="submit" value="Upload" hidden>
                     </form>
                 </div>
-                <div>
+                <div id="underNameContainer">
                     <div>  
                         <h1 class="switchTo" id="name"><?= $show['name']?></h1>
                         <form method='post'><input class='in' name='name' type='text' placeholder='<?= $show['name']?>' hidden>
@@ -100,7 +101,7 @@ function array_push_assoc($array, $key, $value){
                 </div>
             </div>
             <div id="mid_container">
-                <div>
+                <div id="iets">
                     <input class='in' name='skills' type='text' placeholder='<?= $show['skills']?>' hidden>
                     <h2 class="switchTo" id="skills"><?= $show['skills']?></h2>
                     <ol>
