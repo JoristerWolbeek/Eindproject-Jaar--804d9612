@@ -301,3 +301,7 @@ ol{
     display: flex;
     justify-content: center;
 }
+
+.Switch{ 
+    margin-right: 0px;
+}
